@@ -20,6 +20,7 @@ const Customer = database.define('Customer',
         phone: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true
         },
         address: {
             type: DataTypes.STRING,

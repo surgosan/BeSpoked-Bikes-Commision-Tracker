@@ -1,5 +1,9 @@
 <template>
   <main>
+    <div class="home-card" id="business">
+      <h1 class="card-title">BeSpoked Bikes</h1>
+    </div>
+
     <div class="home-card" id="createSale">
       <h1 class="card-title">Create a sale</h1>
 
@@ -31,14 +35,6 @@
 
     </div>
 
-    <div class="home-card" id="commisionReport">
-      <h1 class="card-title">Quarterly Commission Report</h1>
-
-      <div class="comission-report-output">
-
-      </div>
-    </div>
-
     <div class="home-card" id="sales">
       <h1 class="card-title">Sales</h1>
       
@@ -60,6 +56,7 @@
     <div class="home-card" id="view-routes">
       <RouterLink class="link" to="/editProduct">Products</RouterLink>
       <RouterLink class="link" to="/editPeople">Sales People</RouterLink>
+      <RouterLink class="link" to="/customers">Customer List</RouterLink>
     </div>
   </main>
 </template>
@@ -94,6 +91,7 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    background: transparent;
  }
 
  .link {
@@ -105,9 +103,13 @@
   height: 45%;
   border: solid 2px var(--background4);
   border-radius: .5rem;
-  background: linear-gradient(90deg, var(--background2), 75%, var(--background4), 95%, var(--theme-color));
+  background: linear-gradient(90deg, var(--background2), 75%, var(--theme-color));
+  transition: .4s; 
  }
 
+ .link:hover {
+  scale: 1.01;
+ }
  .card-title {
   text-decoration: solid underline var(--heading);
  }
@@ -136,12 +138,12 @@
   flex-grow: 1;
  }
 
- .comission-report-output {
-  display: none;
-  width: 95%;
-  padding: 2%;
-  background: var(--background4);
-  border-radius: .5rem;
-  flex-grow: 1;
+ .options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  flex-wrap: nowrap;
  }
+
 </style>

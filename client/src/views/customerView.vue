@@ -1,20 +1,20 @@
 <script setup>
-    import infoProduct from '../components/infoProduct.vue';
-    import editProduct from '@/components/editProduct.vue';
+    import infoCustomer from '@/components/infoCustomer.vue';
+    import editCustomer from '@/components/editCustomer.vue';
 </script>
 
 <template>
-    <h1>Products</h1>
+    <h1>Customers</h1>
     <RouterLink class="link" to="/">Home</RouterLink>
     <main>
         <div class="output">
-            <h2>Product List</h2>
+            <h2>Customer List</h2>
         </div>
 
         <div class="sideBar">
             <h2 id="sideTitle">Info Controller</h2>
-            <infoProduct/>
-            <editProduct/>
+            <infoCustomer/>
+            <editCustomer/>
         </div>
     </main>
 </template>
