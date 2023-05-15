@@ -37,23 +37,19 @@ Database
         ID: Primary Key | Auto Increment
         1. First Name
         2. Last Name
-        3. Adress: NO DUP
-        4. Phone
+        3. Adress
+        4. Phone: NO DUP
         5. Start Date
         6. Termination Date
         7. Manager
 
-    Customer: Customer belongs to salesperson | Customer can have many sales
+    Customer: Customer can have many sales
         ID: Primary Key | Auto Increment
         1. First Name
         2. Last Name
         3. Address
         4. Phone
         5. Start Date
-        6. Amount Product Purchases
-        7. Salesperson: Foreign Key
-        8. Customer???  (don't think this one is necessary??)
-        9. Sales Date
 
     Discount
         ID: Primary Key | Auto Increment

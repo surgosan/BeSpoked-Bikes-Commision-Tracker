@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const database = require('../database');
 
-const Product = database.define('Product',
+const Salesperson = database.define('Salesperson',
     {
         id: {
             type: DataTypes.INTEGER,
@@ -9,40 +9,40 @@ const Product = database.define('Product',
             primaryKey: true,
             autoIncrement: true,
         },
-        name: {
+        phone: {
             type: DataTypes.STRING(255),
             allowNull: false,
             unique: true,
         },
-        manufacturer: {
+        first_name: {
             type: DataTypes.STRING(255),
+            allowNull: false,
+        },
+        last_name: {
+            type: DataTypes.STRING(255),
+            allowNull: false,
+        },
+        address: {
+            type: DataTypes.STRING(255),
+            allowNull: false,
+        },
+        start_date: {
+            type: DataTypes.DATEONLY,
             allowNull: true,
         },
-        style: {
-            type: DataTypes.STRING(255),
+        termination_date: {
+            type: DataTypes.DATEONLY,
             allowNull: true,
         },
-        purchase_price: {
-            type: DataTypes.DECIMAL(10, 2),
-            allowNull: false,
-        },
-        sale_price: {
-            type: DataTypes.DECIMAL(10, 2),
-            allowNull: false,
-        },
-        quantity_on_hand: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        commission_percentage: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
+        manager: {
+            type: DataTypes.STRING(255),
+            allowNull: true,
         },
     },
     {
         timestamps: false,
-        modelName: 'Product',
+        modelName: 'Salesperson',
     }
 );
 
-module.exports = Product; 
+module.exports = Salesperson; 
