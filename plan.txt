@@ -1,0 +1,72 @@
+Basically, this is an page for managers or higher ups.
+Need access to salesperson’s data as well as the stores items.
+Client must be able to communicate with database to fetch and set
+
+Setup: HTML, CSS, Javascript (in form of Vue.js)    |   MySQL (database) and sequelize
+
+Client
+    By update a list, I will assume updating the database after affecting one salesperson/product
+    
+    Main page will display:  (for sections that don't need dedicated controll page or for easy access)
+        1. quarterly salesperson commission report
+        2. Create a sale
+        3. Display list of sales
+
+    Sales Person page:
+        1. Update/Add a salesperson
+        2. Display salespeople
+
+    Products Page:
+        1. Update/Add a product
+        2. Display Products
+
+Database
+    Entails tables, properties and relationships (creation of database will be made manually ahead of time)
+
+    Products: Products can have many Discounts | Product can have many Sales
+        ID: Primary Key | Auto Increment
+        1. Name: NO DUP
+        2. Manufacturer
+        3. Style?
+        4. Purchase Price
+        5. Sale Price
+        6. Qty on hand
+        7. Commission Percentage
+
+    Salesperson:
+        ID: Primary Key | Auto Increment
+        1. First Name
+        2. Last Name
+        3. Adress: NO DUP
+        4. Phone
+        5. Start Date
+        6. Termination Date
+        7. Manager
+
+    Customer: Customer belongs to salesperson | Customer can have many sales
+        ID: Primary Key | Auto Increment
+        1. First Name
+        2. Last Name
+        3. Address
+        4. Phone
+        5. Start Date
+        6. Amount Product Purchases
+        7. Salesperson: Foreign Key
+        8. Customer???  (don't think this one is necessary??)
+        9. Sales Date
+
+    Discount
+        ID: Primary Key | Auto Increment
+        1. ProductID: Foreign Key
+        2. Begin Date
+        3. End Date
+        4. Discount Percentage
+
+    Sales: Sales belongs to product | Sales belongs to customer | Sales belongs to salesperson
+        ID: Primary Key | Auto Increment
+        1. ProductID: Foreign Key
+        2. SalesPersonID: Foreign Key
+        3. Costumer ID: Foreign Key
+        4. Sale Date
+
+    Create sample data
