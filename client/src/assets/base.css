@@ -1,0 +1,107 @@
+:root {
+    --background-light: #EEEEEE;
+    --background-light-2: #e0dddd;
+    --background-light-3: #D8D9CF;
+    --background-light-4: rgb(119, 136, 153);
+    --background-dark: rgb(32,34,37);
+    --background-dark-2: #393E46;
+    --background-dark-3: rgb(64,68,75);
+    --background-dark-4: rgb(245, 245, 245);
+
+    --text-light: rgb(32,34,37);
+    --text-dark: #EEEEEE;
+
+    --heading-light: black;
+    --heading-dark: white;
+
+    --theme-color: #D65A31;
+    /* color variables */
+
+    /* semantic variables */
+    --background: var(--background-light);
+    --background2: var(--background-light-2);
+    --background3: var(--background-light-3)
+    --background4: var(--background-light-4)
+    --text: var(--text-light);
+    --heading: var(--heading-light);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: var(--background-dark);
+        --background2: var(--background-dark-2);
+        --background3: var(--background-dark-3);
+        --background4: var(--background-dark-4);
+        --text: var(--text-dark);
+        --heading: var(--heading-dark);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--background);
+}
+
+h1,h2, a, ul {
+    color: var(--heading);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h3, h4, p, li, label {
+    color: var(--text);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+input {
+    width: 15rem;
+    height: 2rem;
+    text-align: center;
+    background: var(--background4);
+    border: none;
+    border-radius: .5em;
+}
+
+select {
+    width: 10rem;
+    height: 2rem;
+    text-align: center;
+    background: var(--background4);
+    border: none;
+    border-radius: .5em;
+}
+
+button {
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    width: 5rem;
+    height: 2rem;
+    background: var(--background4);
+    border: none;
+    border-radius: .8rem;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--theme-color);
+    z-index: -1;
+    border-radius: .8rem;
+    transition: .4s;
+}
+
+button:hover {
+    scale: 1.01;
+}
+
+button:hover::before {
+    width: 100%;
+}

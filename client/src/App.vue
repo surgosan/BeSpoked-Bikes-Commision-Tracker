@@ -1,30 +1,28 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <h1 id="title">Bespoked Bikes Manager Site</h1>
+  <router-view class="view"/>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
+<style scopeds>
+#title {
+  position: relative;
   padding: 30px;
-}
-
-nav a {
+  text-align: center;
   font-weight: bold;
-  color: #2c3e50;
+}
+#title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 10%;
+  width: 100%;
+  height: 2px;
+  background-color: var(--theme-color);
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.view {
+  width: 100%;
+  height: 50px;
+  flex-grow: 1;
 }
 </style>

@@ -9,8 +9,11 @@ Client
     
     Main page will display:  (for sections that don't need dedicated controll page or for easy access)
         1. quarterly salesperson commission report
+            - same as sales list
         2. Create a sale
         3. Display list of sales
+            - output for confirmation# or error
+            - display: none; loading icon?
 
     Sales Person page:
         1. Update/Add a salesperson
