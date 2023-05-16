@@ -1,11 +1,16 @@
-module.exports = (app) => {
-    app.get('/', (req, res) => {
-        res.send('Hello ERIK')
-    })
+const salesPersonController = require('./controllers/salesPersonController');
+const productController = require('./controllers/productController')
 
-    app.get('/salesPeople/checkPhone', (req, res) => {
-        res.send(req.body.phone)
-    })
+module.exports = (app) => {
+    app.get('/', (req, res) => {res.send('Hello ERIK')})
+
+    app.post('/register/sales-person',salesPersonController.register)
+    app.get('/salesPeople/checkPhone', salesPersonController.checkPhoneNumber)
+    app.get('/salesPeople/retrieve',salesPersonController.findById)
+    
+    app.post('/products/new', productController.newProduct);
+    app.put('/products/edit', productController.editProductById);
+    app.get('/product/get', productController.retrieveProductById);
 
     app.post('/checkPhone', async (req, res) => {
         const { phoneNumber } = req.body;

@@ -1,4 +1,5 @@
-const database = require('../database');
+const Sequelize = require('sequelize');
+const database = require('../dbInstance');
 
 const Product = require('./Product'); 
 const Salesperson = require('./Salesperson'); 
@@ -34,19 +35,7 @@ Salesperson.hasMany(Sales, {
     foreignKey: "salesperson_id",
 });
 
-database
-    .sync()
-    .then((result) => {
-        console.log(result);
-        console.log("Database Synced!")
-    })
-    .catch((err) => {
-        console.log("Something went wrong...")
-        console.log(err);
-    });
-
-
- const models = {
+const data = {
     Product,
     Salesperson,
     Customer,
@@ -54,4 +43,6 @@ database
     Discount
 }
 
-module.exports = models;
+data.sequelize = Sequelize;
+
+module.exports = data;
