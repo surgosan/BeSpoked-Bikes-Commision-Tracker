@@ -40,7 +40,7 @@
             <br> 
             a new person object will be created**
         </p>
-        <button>Submit</button>
+        <button @click="submit">Submit</button>
     </main>
 </template>
 
@@ -61,3 +61,20 @@
         display: flex;
     }
 </style>
+
+<script setup>
+import connection from '../server/connection';
+
+function submit() {
+    connection.post({
+        postee: "dang boi"
+    });
+    // axios.get('/').then(response => {
+    // console.log(response.data);
+    // })
+    // .catch(error => {
+    //     console.log('uh oh');
+    // })
+}
+
+</script>
