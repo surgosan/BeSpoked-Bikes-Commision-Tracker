@@ -4,34 +4,34 @@
             <div class="vBox">      
                 <div class="singleInput">
                     <label for="fName">First Name: </label>
-                    <input type="text" id="fName"/>
+                    <input type="text" id="fName" v-model="fName"/>
                 </div>
 
                 <div class="singleInput">
                     <label for="lName">Last Name: </label>
-                    <input type="text" id="lName"/>
+                    <input type="text" id="lName" v-model="lName"/>
                 </div>
 
                 <div class="singleInput">
                     <label for="phone">Phone Number: </label>
-                    <input type="text" id="phone"/>
+                    <input type="text" id="phone" v-model="phoneNumberRef"/>
                 </div>
             </div>
 
             <div class="vBox">
                 <div class="singleInput">
                     <label for="address">Address: </label>
-                    <input type="number" id="address"/>
+                    <input type="number" id="address" v-model="address"/>
                 </div>
 
                 <div class="singleInput">
                     <label for="sdate">Start Date: </label>
-                    <input type="date" id="sdate"/>
+                    <input type="date" id="sdate" v-model="sDate"/>
                 </div>
 
                 <div class="singleInput">
                     <label for="tDate">Termination Date: </label>
-                    <input type="date" id="tDate"/>
+                    <input type="date" id="tDate" v-model="tDate"/>
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
             <br> 
             a new person object will be created**
         </p>
-        <button @click="submit">Submit</button>
+        <button @click="noDup">Submit</button>
     </main>
 </template>
 
@@ -63,18 +63,38 @@
 </style>
 
 <script setup>
+import { ref } from 'vue';
 import connection from '../server/connection';
 import Api from '@/server/Api';
 import axios from 'axios';
 
-async function submit() {
-    const response = await connection.post({
-        msg: "CHECK CHECK"
+const fName = ref("");
+const lName = ref("");
+const phoneNumberRef = ref("");
+const address = ref("");
+const sDate = ref("");
+const tDate = ref("");
+
+function check() {
+    alert(phoneNumberRef.value)
+}
+
+async function noDup() {
+
+    const response = await connection.checkSalesPhone({
+        phoneNumber: phoneNumberRef.value
     })
 
+    alert(response.data)
+
+    // const response = await connection.post({
+    //     msg: "Hello World"
+    // })
+    
     // const response = await Api().post('/post', {
     //     msg: "OOO ya"
     // })
+}
 
     // Api().post('/post', data)
     //     .then(response => {
@@ -93,7 +113,6 @@ async function submit() {
 
     // console.log(resp);
     
-    console.log(response.data);
-}
+    // console.log(response.data);
 
 </script>

@@ -43,4 +43,15 @@ database
     .catch((err) => {
         console.log("Something went wrong...")
         console.log(err);
-    })
+    });
+
+
+ const models = {
+    Product,
+    Salesperson,
+    Customer,
+    Sales,
+    Discount
+}
+
+module.exports = models;

@@ -5,6 +5,7 @@ const cors = require('cors');
 const app = express();
 app.use(bodyParser.json());
 app.use(cors())
+require('./routes')(app);
 const port = 8081;
 
 app.use(function(req, res, next) {
@@ -31,16 +32,13 @@ async function init()
 
 init(); //test if we have a connection
 
-app.get('/', (req, res) => {
-    res.send('Get Request')
-  })
 
-app.post('/post', (req, res) => {
-    res.send("Connection Complete! Msg: " + req.body.msg);
+sequelize.sync()
+.then(() => {
+    console.log("Synced");
+
+    app.listen(port, () => {
+        console.log(`Example app listening on port ${port}`)
+    })
 })
-
-app.listen(port, () => {
-console.log(`Example app listening on port ${port}`)
-})
-
-//module.exports = sequelize;
+    

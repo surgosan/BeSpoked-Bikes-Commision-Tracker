@@ -7,5 +7,11 @@ export default {
 
     post (postee) {
         return Api().post('post', postee);        
+    },
+
+    checkSalesPhone (phoneNumber) {
+        return Api().get('salesPeople/checkPhone', {
+            phone: phoneNumber
+        });
     }
 }
