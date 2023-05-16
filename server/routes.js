@@ -7,9 +7,11 @@ const discountController = require('./controllers/discountController');
 module.exports = (app) => {
     app.get('/', (req, res) => {res.send('Hello ERIK')})
 
-    app.post('/salesPeople/new',salesPersonController.register)
-    app.get('/salesPeople/checkPhone', salesPersonController.checkPhoneNumber)
-    app.get('/salesPeople/get',salesPersonController.findById)
+    app.post('/salesPeople/new',salesPersonController.register);
+    app.post('/salesPeople/checkPhone', salesPersonController.checkPhoneNumber);
+    app.post('/salesPeople/get', salesPersonController.findById);
+    app.get('/salesPeople/getAll', salesPersonController.getAllSalespeople);
+
     
     app.post('/products/new', productController.newProduct);
     app.put('/products/edit', productController.editProductById);

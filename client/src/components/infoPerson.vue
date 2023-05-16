@@ -1,31 +1,53 @@
 <template>
     <main>
-        <div class="infoRow">
-            <p>Id: 1</p>
-            <p>First Name: John</p>
-            <p>Last Name: Appleseed</p>
-        </div>
-        <div class="infoRow">
-            <p>Phone Number: 706-934-2353</p>
-            <p>Adress: The White House</p>
-        </div>
-        <div class="infoRow">
-            <p>Start Date: 2020/12/12</p>
-            <p>Termination Date: </p>
-        </div>
+      <div class="infoRow">
+        <p>Id: {{ salesperson ? salesperson.id : 'Loading...' }}</p>
+        <p>First Name: {{ salesperson ? salesperson.first_name : 'Loading...' }}</p>
+        <p>Last Name: {{ salesperson ? salesperson.last_name : 'Loading...' }}</p>
+      </div>
+      <div class="infoRow">
+        <p>Phone Number: {{ salesperson ? salesperson.phone : 'Loading...' }}</p>
+        <p>Address: {{ salesperson ? salesperson.address : 'Loading...' }}</p>
+      </div>
+      <div class="infoRow">
+        <p>Start Date: {{ salesperson ? salesperson.start_date : 'Loading...' }}</p>
+        <p>Termination Date: {{ salesperson ? salesperson.termination_date : 'Loading...' }}</p>
+      </div>
     </main>
-</template>
-
-<style scoped>
-
-    main {
-        display: flex;
-        flex-direction: column;
+  </template>
+  
+  <style scoped>
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .infoRow {
+    padding: 0.25em;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  </style>
+  
+  <script setup>
+  import { ref, onMounted } from 'vue';
+  import connection from '@/server/connection';
+  
+  const salesperson = ref(null);
+  
+  const getSalespersonData = async (salespersonId) => {
+    try {
+      const response = await connection.getSalespersonById(salespersonId);
+      salesperson.value = response.data;
+    } catch (error) {
+      console.error(error);
     }
-    .infoRow {
-        padding: .25em;
-        display: flex;
-        width: 100%;
-        justify-content: space-evenly;
-    }
-</style>
+  };
+  
+  onMounted(() => {
+    const salespersonId = 5;
+    getSalespersonData(salespersonId);
+  });
+  </script>
+  

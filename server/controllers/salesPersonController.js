@@ -3,6 +3,7 @@ const { Salesperson } = require('../models')
 module.exports = {
     async register (req, res) {
         try {
+            console.log(req.body);
             const person = await Salesperson.create(req.body);
             res.send("Very cool " + person.first_name)
         } catch (err) {
@@ -18,9 +19,9 @@ module.exports = {
             const existingPerson = await Salesperson.findOne({ where: { phone } });
 
             if (existingPerson) {
-                res.send(true);
+                res.send("exists");
             } else {
-                res.send(false);
+                res.send("doesNotExist");
             }
         } catch (err) {
             res.status(400).send({
@@ -32,10 +33,11 @@ module.exports = {
     async findById(req, res) {
         try {
           const id = req.body.id
+          console.log(id)
           const salesperson = await Salesperson.findOne({ where: { id } })
     
           if(salesperson) {
-            res.send(salesperson.first_name)
+            res.send(salesperson)
           }
           else{
             res.send("Salesperson not found")
@@ -47,5 +49,16 @@ module.exports = {
             error: 'An error occurred while fetching the salesperson: ' + err.message
           })
         }
-    }
+    },
+
+    async getAllSalespeople(req, res) {
+        try {
+          const salespeople = await Salesperson.findAll();
+          res.send(salespeople);
+        } catch (err) {
+          res.status(400).send({
+            error: 'An error occurred while fetching salespeople: ' + err.message
+          });
+        }
+      },
 }

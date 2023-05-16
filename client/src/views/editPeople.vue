@@ -1,6 +1,7 @@
 <script setup>
 import InfoPerson from '../components/infoPerson.vue';
 import editPerson from '../components/editPerson.vue';
+import tablePeople from '@/components/tablePeople.vue';
 
 </script>
 
@@ -9,12 +10,13 @@ import editPerson from '../components/editPerson.vue';
     <RouterLink class="link" to="/">Home</RouterLink>
     <main>
         <div class="output">
-            <h2>Sales People List</h2>
+            <h2 class="title">Sales People List</h2>
+            <tablePeople class="table"/>
         </div>
 
         <div class="sideBar">
             <div class="commissionReport">
-                <h2>Quarterly Commission Report</h2>
+                <h2 class="title">Quarterly Commission Report</h2>
                 
                 <div class="comissionOutput">
                     <h3>Choose a sales person</h3>
@@ -22,7 +24,7 @@ import editPerson from '../components/editPerson.vue';
             </div>
 
             <div class="edit">
-                <h2>Info/Edit</h2>
+                <h2 class="title">Info/Edit</h2>
 
                 <div class="info">
                     <InfoPerson/>
@@ -46,10 +48,21 @@ import editPerson from '../components/editPerson.vue';
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
         background-color: var(--background2);
         border: solid 2px white;
         width: 70%;
         height: 100%;
+        gap: 1rem;
+    }
+
+    .table {
+        width: 90%;
+        flex-grow: 1;
+    }
+
+    .title {
+        text-decoration: solid underline var(--theme-color);
     }
 
     .sideBar {

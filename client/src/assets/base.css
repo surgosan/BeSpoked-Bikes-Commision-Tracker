@@ -46,12 +46,12 @@ body {
     background-color: var(--background);
 }
 
-h1,h2, a, ul {
+h1,h2, a, ul, th {
     color: var(--heading);
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-h3, h4, p, li, label {
+h3, h4, p, li, label, td {
     color: var(--text);
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -108,4 +108,18 @@ button:hover::before {
 
 hr {
     border-color: var(--theme-color);
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+th {
+    padding: 1%;
+    border-bottom: solid 2px var(--theme-color);
+}
+
+td {
+    padding: 1%;
+    border: solid 2px var(--heading);
 }
