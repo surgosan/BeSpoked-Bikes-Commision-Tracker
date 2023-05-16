@@ -40,7 +40,7 @@
             <br> 
             a new person object will be created**
         </p>
-        <button @click="noDup">Submit</button>
+        <button @click="">Submit</button>
     </main>
 </template>
 
@@ -65,8 +65,6 @@
 <script setup>
 import { ref } from 'vue';
 import connection from '../server/connection';
-import Api from '@/server/Api';
-import axios from 'axios';
 
 const fName = ref("");
 const lName = ref("");
@@ -79,40 +77,5 @@ function check() {
     alert(phoneNumberRef.value)
 }
 
-async function noDup() {
-
-    const response = await connection.checkSalesPhone({
-        phoneNumber: phoneNumberRef.value
-    })
-
-    alert(response.data)
-
-    // const response = await connection.post({
-    //     msg: "Hello World"
-    // })
-    
-    // const response = await Api().post('/post', {
-    //     msg: "OOO ya"
-    // })
-}
-
-    // Api().post('/post', data)
-    //     .then(response => {
-    //     state.message = response.data;
-    //     })
-    //     .catch(error => {
-    //     console.log(error);
-    //     });
-
-    // const resp = await axios.post('https://localhost:8081/post', {
-    //     msg: "Hello World!!!"
-    // })
-    // .catch(function (error) {
-    //     console.log(error);
-    // });
-
-    // console.log(resp);
-    
-    // console.log(response.data);
 
 </script>

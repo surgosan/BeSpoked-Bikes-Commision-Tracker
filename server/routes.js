@@ -1,35 +1,29 @@
 const salesPersonController = require('./controllers/salesPersonController');
-const productController = require('./controllers/productController')
+const productController = require('./controllers/productController');
+const salesController = require('./controllers/saleController');
+const customerController = require('./controllers/customerController');
+const discountController = require('./controllers/discountController');
 
 module.exports = (app) => {
     app.get('/', (req, res) => {res.send('Hello ERIK')})
 
-    app.post('/register/sales-person',salesPersonController.register)
+    app.post('/salesPeople/new',salesPersonController.register)
     app.get('/salesPeople/checkPhone', salesPersonController.checkPhoneNumber)
-    app.get('/salesPeople/retrieve',salesPersonController.findById)
+    app.get('/salesPeople/get',salesPersonController.findById)
     
     app.post('/products/new', productController.newProduct);
     app.put('/products/edit', productController.editProductById);
     app.get('/product/get', productController.retrieveProductById);
 
-    app.post('/checkPhone', async (req, res) => {
-        const { phoneNumber } = req.body;
-    
-        try {
-        const salesPerson = await models.Salesperson.findOne({
-            where: { phone: phoneNumber },
-        });
-    
-        if (salesPerson) {
-            res.send(true); // phone number exists
-        } else {
-            res.send(false); // phone number does not exist
-        }
-        } catch (error) {
-        console.error(error);
-        res.status(500).send('Server Error');
-        }
-    });
+    app.post('/sales/new', salesController.createSale);
+    app.post('/sales/get', salesController.getSaleById);
+
+    app.post('/customers/new', customerController.register);
+    app.get('/customers/checkPhone', customerController.checkPhone);
+    app.post('/customers/get', customerController.getById);
+
+    app.post('/discounts/new', discountController.create);
+    app.get('/discounts/get', discountController.getById);
 
     app.post('/post', (req, res) => {
         res.send("Connection Complete! Msg: " + req.body.msg);
