@@ -1,7 +1,12 @@
+<script setup>
+  import discountCreation from '@/components/discountCreation.vue';
+  import sales from '@/components/sales.vue';
+</script>
+
 <template>
   <main>
     <div class="home-card" id="business">
-      <h1 class="card-title">BeSpoked Bikes</h1>
+      <discountCreation/>
     </div>
 
     <div class="home-card" id="createSale">
@@ -36,21 +41,7 @@
     </div>
 
     <div class="home-card" id="sales">
-      <h1 class="card-title">Sales</h1>
-      
-      <div class="options">
-        <label for="filter">Filter By: </label>
-        <select name="filter">
-          <optgroup label="Please make a selection">
-            <option value="dateAsc">Date Ascending</option>
-            <option value="dateDec">Date Decending</option>
-          </optgroup>
-        </select>
-      </div>
-
-      <div class="sales-output">
-
-      </div>
+      <sales/>
     </div>
 
     <div class="home-card" id="view-routes">
