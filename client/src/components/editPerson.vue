@@ -64,17 +64,36 @@
 
 <script setup>
 import connection from '../server/connection';
+import Api from '@/server/Api';
+import axios from 'axios';
 
-function submit() {
-    connection.post({
-        postee: "dang boi"
-    });
-    // axios.get('/').then(response => {
-    // console.log(response.data);
+async function submit() {
+    const response = await connection.post({
+        msg: "CHECK CHECK"
+    })
+
+    // const response = await Api().post('/post', {
+    //     msg: "OOO ya"
     // })
-    // .catch(error => {
-    //     console.log('uh oh');
+
+    // Api().post('/post', data)
+    //     .then(response => {
+    //     state.message = response.data;
+    //     })
+    //     .catch(error => {
+    //     console.log(error);
+    //     });
+
+    // const resp = await axios.post('https://localhost:8081/post', {
+    //     msg: "Hello World!!!"
     // })
+    // .catch(function (error) {
+    //     console.log(error);
+    // });
+
+    // console.log(resp);
+    
+    console.log(response.data);
 }
 
 </script>

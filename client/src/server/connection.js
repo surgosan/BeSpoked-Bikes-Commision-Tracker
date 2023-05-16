@@ -6,6 +6,6 @@ export default {
     },
 
     post (postee) {
-        return Api().post('post', postee);
+        return Api().post('post', postee);        
     }
 }
