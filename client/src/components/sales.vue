@@ -26,11 +26,11 @@
       <tbody>
         <tr v-for="sale in sortedSales" :key="sale.id">
           <td>{{ getProductById(sale.product_id).name }}</td>
-          <td>{{ getCustomerById(sale.customer_id).name }}</td>
+          <td>{{ getCustomerById(sale.customer_id).first_name }}</td>
           <td>{{ sale.sales_date }}</td>
           <td>{{ getProductById(sale.product_id).sale_price }}</td>
-          <td>{{ getSalespersonById(sale.salesperson_id).name }}</td>
-          <td>{{ getSalespersonById(sale.salesperson_id).commission_percentage }}</td>
+          <td>{{ getSalespersonById(sale.salesperson_id).first_name }}</td>
+          <td>{{ getProductById(sale.product_id).commission_percentage }} %</td>
         </tr>
       </tbody>
     </table>
@@ -73,6 +73,8 @@ const fetchSales = async () => {
     const customersResponse = await connection.getAllCustomers();
     const salespersonsResponse = await connection.getAllSalespeople();
 
+    console.log(salesResponse.data)
+
     sales.value = salesResponse.data;
     products.value = productsResponse.data;
     customers.value = customersResponse.data;
@@ -107,7 +109,6 @@ const getProductById = (productId) => {
 };
 
 const getCustomerById = (customerId) => {
-  console.log(customers)
   return customers.value.find((customer) => customer.id === customerId);
 };
 
