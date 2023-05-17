@@ -1,6 +1,7 @@
 <script setup>
   import discountCreation from '@/components/discountCreation.vue';
   import sales from '@/components/sales.vue';
+  import salesNew from '@/components/salesNew.vue';
 </script>
 
 <template>
@@ -10,34 +11,7 @@
     </div>
 
     <div class="home-card" id="createSale">
-      <h1 class="card-title">Create a sale</h1>
-
-      <div class="hBox">
-        <div class="singleInput">
-          <label for="productId">Product Id: </label>
-          <input type="number" id="productId"/>
-        </div>
-
-        <div class="singleInput">
-          <label for="salesId">Sales Id: </label>
-          <input type="number" id="salesId"/>
-        </div>
-      </div>
-
-      <div class="hBox">
-        <div class="singleInput">
-          <label for="cusId">Customer Id: </label>
-          <input type="number" id="cusId"/>
-        </div>
-
-        <div class="singleInput">
-          <label for="date">Date: </label>
-          <input type="date" id="date"/>
-        </div>
-      </div>
-      
-      <button >Create</button>
-
+      <salesNew/>
     </div>
 
     <div class="home-card" id="sales">

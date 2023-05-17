@@ -2,23 +2,15 @@ const { Discount } = require('../models');
 
 module.exports = {
     async create(req, res) {
-        try {
-          const { product_id, begin_date, end_date, discount_percentage } = req.body;
-    
-          const discount = await Discount.create({
-            product_id,
-            begin_date,
-            end_date,
-            discount_percentage
-          });
-    
-          res.send(discount);
-        } catch (err) {
-          res.status(400).send({
-            error: 'An error occurred while creating the discount: ' + err.message
-          });
-        }
-      },
+    try {
+      const discount = await Discount.create(req.body);
+      res.sendStatus(200);
+    } catch (err) {
+      res.status(400).send({
+        error: 'An error occurred while creating the discount: ' + err,
+      });
+    }
+  },
 
     async getById(req, res) {
     try {

@@ -45,4 +45,16 @@ module.exports = {
       });
     }
   },
+
+  async getAllCustomers(req, res) {
+    try {
+      const customers = await Customer.findAll();
+      res.send(customers);
+    } catch (err) {
+      res.status(400).send({
+        error: 'An error occurred while fetching all customers: ' + err,
+      });
+    }
+  },
+
 };

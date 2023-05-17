@@ -2,7 +2,6 @@
 import InfoPerson from '../components/infoPerson.vue';
 import editPerson from '../components/editPerson.vue';
 import tablePeople from '@/components/tablePeople.vue';
-
 </script>
 
 <template>

@@ -1,6 +1,7 @@
 <script setup>
     import infoProduct from '../components/infoProduct.vue';
     import editProduct from '@/components/editProduct.vue';
+    import tableProduct from '@/components/tableProduct.vue';
 </script>
 
 <template>
@@ -9,12 +10,14 @@
     <main>
         <div class="output">
             <h2>Product List</h2>
+            <tableProduct :products="products" />
+            <div class="flex-spacer"></div>
         </div>
 
         <div class="sideBar">
             <h2 id="sideTitle">Info Controller</h2>
-            <infoProduct/>
-            <editProduct/>
+            <infoProduct :product="selectedProduct" />
+            <editProduct @product-updated="refreshTable" />
         </div>
     </main>
 </template>
@@ -31,6 +34,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
         background-color: var(--background2);
         border: solid 2px white;
         width: 70%;

@@ -123,3 +123,7 @@ td {
     padding: 1%;
     border: solid 2px var(--heading);
 }
+
+.flex-spacer {
+    flex-grow: 1;
+}

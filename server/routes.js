@@ -13,16 +13,20 @@ module.exports = (app) => {
     app.get('/salesPeople/getAll', salesPersonController.getAllSalespeople);
 
     
-    app.post('/products/new', productController.newProduct);
+    app.post('/products/new', productController.createProduct);
     app.put('/products/edit', productController.editProductById);
-    app.get('/product/get', productController.retrieveProductById);
+    app.post('/products/get', productController.getProductById);
+    app.post('/products/name', productController.getProductByName);
+    app.get('/products/getAll', productController.getAllProducts);
 
     app.post('/sales/new', salesController.createSale);
     app.post('/sales/get', salesController.getSaleById);
+    app.get('/sales/getAll', salesController.getAllSales);
 
     app.post('/customers/new', customerController.register);
-    app.get('/customers/checkPhone', customerController.checkPhone);
+    app.post('/customers/checkPhone', customerController.checkPhone);
     app.post('/customers/get', customerController.getById);
+    app.get('/customers/getAll', customerController.getAllCustomers);
 
     app.post('/discounts/new', discountController.create);
     app.get('/discounts/get', discountController.getById);

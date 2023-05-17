@@ -19,11 +19,17 @@ export default {
   createProduct(productData) {
     return Api().post('/products/new', productData);
   },
+  getProductByName(productName) {
+    return Api().post('/products/name', { name: productName});
+  },
   editProductById(productId, productData) {
     return Api().put(`/products/edit`, { id: productId, ...productData });
   },
   getProductById(productId) {
-    return Api().get('/product/get', { id: productId });
+    return Api().post('/products/get', { id: productId });
+  },
+  getAllProducts() {
+    return Api().get('/products/getAll');
   },
 
   // Sale routes
@@ -33,20 +39,26 @@ export default {
   getSaleById(saleId) {
     return Api().post('/sales/get', { id: saleId });
   },
+  getAllSales() {
+    return Api().get('/sales/getAll');
+  },
 
   // Customer routes
   createCustomer(customerData) {
     return Api().post('/customers/new', customerData);
   },
   checkCustomerPhone(phoneNumber) {
-    return Api().get('/customers/checkPhone', { phone: phoneNumber });
+    return Api().post('/customers/checkPhone', { phone: phoneNumber });
   },
   getCustomerById(customerId) {
     return Api().post('/customers/get', { id: customerId });
   },
+  getAllCustomers() {
+    return Api().get('/customers/getAll');
+  },
 
   // Discount routes
-  createDiscount(discountData) {
+  discountNew(discountData) {
     return Api().post('/discounts/new', discountData);
   },
   getDiscountById(discountId) {

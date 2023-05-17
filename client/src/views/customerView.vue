@@ -1,6 +1,7 @@
 <script setup>
     import infoCustomer from '@/components/infoCustomer.vue';
     import editCustomer from '@/components/editCustomer.vue';
+    import tableCustomer from '@/components/tableCustomer.vue';
 </script>
 
 <template>
@@ -8,11 +9,13 @@
     <RouterLink class="link" to="/">Home</RouterLink>
     <main>
         <div class="output">
-            <h2>Customer List</h2>
+            <h2 class="title">Customer List</h2>
+            <tableCustomer class="table"/>
+            <div class="flex-spacer"></div>
         </div>
 
         <div class="sideBar">
-            <h2 id="sideTitle">Info Controller</h2>
+            <h2 id="title">Info Controller</h2>
             <infoCustomer/>
             <editCustomer/>
         </div>
@@ -31,10 +34,20 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
         background-color: var(--background2);
         border: solid 2px white;
         width: 70%;
         height: 100%;
+        gap: 1rem;
+    }
+
+    .title {
+        text-decoration: solid underline var(--theme-color);
+    }
+
+    .table {
+        width: 90%;
     }
 
     .sideBar {

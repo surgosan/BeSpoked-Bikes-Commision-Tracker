@@ -4,6 +4,7 @@ module.exports = {
   async createSale(req, res) {
     try {
       const { product_id, salesperson_id, customer_id, sales_date } = req.body;
+      console.log(req.body);
 
       const sale = await Sales.create({
         product_id,
@@ -11,7 +12,6 @@ module.exports = {
         customer_id,
         sales_date,
       });
-
       res.send(sale);
     } catch (err) {
       res.status(400).send({
@@ -38,5 +38,15 @@ module.exports = {
         error: 'An error occurred while fetching the sale: ' + err.message,
       });
     }
-  }  
+  },
+  async getAllSales(req, res) {
+    try {
+      const sales = await Sales.findAll();
+      res.send(sales);
+    } catch (err) {
+      res.status(500).send({
+        error: 'An error occurred while fetching the sales: ' + err,
+      });
+    }
+  },
 };
