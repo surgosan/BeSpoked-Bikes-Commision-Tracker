@@ -1,39 +1,56 @@
-# BeSpoked-Bikes-Commision-Tracker
+# BeSpoked-Bikes
 
-to help track the commission and determine each salesperson’s quarterly bonus
+![Alt text](beSpokedHome.png)
 
-## They will need at a minimum the following components:
+- The application is split in two folder: client and server
+- I will not assume you have Vue.js but you **will not need it**
 
-1. Data Layer
-   1. Entities
-      1. Products – Name, Manufacturer, Style, Purchase Price, Sale Price, Qty On Hand,
-Commission Percentage
+## This application is built with
+1. Client
+   1. Vue3 (HTML, CSS, JS)
+   2. Axios 1.4.0 (client-to-server connection)
+   3. For You (no Vuejs): http-server 14.1.1
 
-        2. Salesperson – First Name, Last Name, Address, Phone, Start Date, Termination
-Date, Manager
+2. Server
+   1. MySQL 8.0 Database
+   2. Sequelize - 6.31.1
+   3. Express JS - 4.18.2
+   4. mysql2 - 3.3.1
+   5. cors - 2.8.5
+   6. body-parser - 1.20.2
+   7. nodemon - 2.0.22
 
-        3. Customer – First Name, Last Name, Address, Phone, Start Date
- 
-        4. Sales – Product, Salesperson, Customer, Sales Date
+## Database
 
-        5. Discount – Product, Begin Date, End Date, Discount Percentage
-   
-        6. Seed with sample data for testing
+![Alt text](BeSpokedRelationalMap.png)
 
-1. Middle Tier
-   1. Allows for client access to the data layer
+The script to create the **bespokedbikes** database and tables is in ***seederData.sql***
+Run seederData.sql in your **MYSQL workbench** or **MySQL Command Line**
+## Server
 
-2. Client
-   1. Display a list of salespersons
-   2. Update a salesperson
-   3. Display a list of products
-   4. Update a product
-   5. Display a list of customers
-   6. Display a list of sales. Optionally filter by date range. This should include the Product,
-Customer, Date, Price, Salesperson, and Salesperson Commission.
-    1. Create a sale
-    2. Display a quarterly salesperson commission report
+Visit ***dbInstance.js*** in the server folder and provide your **username** and **password** for your database
 
-1. Additional Requirements
-   1. Products – No duplicate product can be entered.
-   2. Salespersons – No duplicate salesperson can be entered.
+The server is ready to start and will restart if there are any changes
+
+```
+cd server
+npm install
+npm start
+```
+
+## Client
+
+The client side has all the vue components which you will not need
+You need the **dist** folder which is the completed version.
+
+In the **terminal** run the following:
+
+```
+cd client
+npm install
+npm install -g http-server
+cd dist
+http-server
+```
+
+Use the following url http://127.0.0.1:8080 (2nd option)

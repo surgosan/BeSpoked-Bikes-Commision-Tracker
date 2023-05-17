@@ -10,8 +10,8 @@
             "driver": "MySQL",
             "name": "BeSpoked",
             "database": "bespokedbikes",
-            "username": "surgosan",
-            "password": "Rosselin06!"
+            "username": "YOUR USERNAME",
+            "password": "YOUR PASSWORD"
         }
     ]
 }
