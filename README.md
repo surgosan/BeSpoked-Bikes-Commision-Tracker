@@ -1,6 +1,6 @@
 # BeSpoked-Bikes
 
-![Alt text](beSpokedHome.png)
+![Home][1]
 
 - The application is split in two folder: client and server
 - I will not assume you have Vue.js but you **will not need it**
@@ -22,7 +22,7 @@
 
 ## Database
 
-![Alt text](BeSpokedRelationalMap.png)
+![Relational Map][2]
 
 The script to create the **bespokedbikes** database and tables is in ***seederData.sql***
 Run seederData.sql in your **MYSQL workbench** or **MySQL Command Line**
@@ -54,3 +54,7 @@ http-server
 ```
 
 Use the following url http://127.0.0.1:8080 (2nd option)
+
+
+[1]: beSpokedHome.png
+[2]: BeSpokedRelationalMap.png
